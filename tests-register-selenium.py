@@ -11,98 +11,128 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
+
 class TestRegister(unittest.TestCase):
 
-  def setup_method(self, method):
-    self.driver = webdriver.Chrome()
-    self.vars = {}
-    self.url = "https://www.testingandplay.com/example/form"
+    def setup_method(self, method):
+        self.driver = webdriver.Chrome()
 
-  def teardown_method(self, method):
-    self.driver.quit()
+        self.xpath_email = "//input[@name=\'email\']"
+        self.xpath_label_invalid = "//div[@class='invalid-feedback']"
+        self.xpath_autocomplete = "//input[@id=\'typeahead-basic\']"
+        self.xpath_option_find = "//button[@id=\'ngb-typeahead-0-0\']"
+        self.xpath_select = "select-input"
+        self.xpath_option_value = "//option[. = '2']"
+        self.xpath_text_area = "//textarea[@id=\'textarea-input\']"
+        self.xpath_file = "//input[@type='file']"
+        self.xpath_radio = "//label[contains(.,\'Radio 2\')]"
+        self.xpath_check_box = "//label[contains(.,\'Check\')]"
+        self.xpath_password = "//input[@name=\'password\']"
+        self.xpath_button_register = "//button[@id=\'submit-input\']"
 
-  def init_method(self, method):
-    self.driver.get(self.url)
-    self.driver.set_window_size(1346, 708)
+        self.valid_email = "rafael.alves@mail.com"
+        self.invalid_email = "rafael.alves@mail"
+        self.message_invalid_email = "Email inválido"
 
-  def check_message_alert(self, message, class_status):
-    self.driver.implicitly_wait(1000)
-    text_alert = self.driver.find_element_by_xpath("//ngb-alert[@class='alert " + class_status + " alert-dismissible']").text
-    self.assertIn(message, text_alert)
+        self.valid_password = "123456"
+        self.invalid_password = "123"
+        self.message_invalid_password = "Senha deve ter entre 4 e 8 caracteres."
 
-  def click_button_send(self):
-    self.driver.find_element(By.XPATH, "//button[@id=\'submit-input\']").click()
+        self.file_path = "C:\\Users\\Rafael Alves\\Downloads\\file.txt"
+        self.value_search = "Dis"
+        self.message_text_area = "Hello"
 
-  def set_password(self, password):
-    input_password = self.driver.find_element(By.XPATH, "//input[@name=\'password\']")
-    input_password.send_keys(password)
+        self.message_success = "Sucesso"
+        self.message_error = "Formulário inválido"
+        self.class_alert_error = "alert-danger"
+        self.class_alert_success = "alert-success"
 
-  def set_email(self, email):
-    input_email = self.driver.find_element(By.XPATH, "//input[@name=\'email\']")
-    input_email.send_keys(email)
+        self.driver.get("https://www.testingandplay.com/example/form")
+        self.driver.set_window_size(1346, 708)
 
-  def check_text_label_invalid(self, message):
-    label_invalid = self.driver.find_element_by_xpath("//div[@class='invalid-feedback']").text
-    self.assertIn(message, label_invalid)
+    def teardown_method(self, method):
+        self.driver.quit()
 
-  def set_autocomplete(self):
-    autocomplete = self.driver.find_element(By.XPATH, "//input[@id=\'typeahead-basic\']")
-    autocomplete.send_keys("District Of Columbia")
-    self.driver.implicitly_wait(2000)
-    option = self.driver.find_element(By.XPATH, "//button[@id=\'ngb-typeahead-0-0\']")
-    option.click()
+    def set_value_element(self, xpath, value):
+        element = self.driver.find_element_by_xpath(xpath)
+        element.send_keys(value)
 
-  def set_dropdown(self):
-    dropdown = self.driver.find_element(By.ID, "select-input")
-    dropdown.find_element(By.XPATH, "//option[. = '2']").click()
+    def click_element(self, xpath):
+        element = self.driver.find_element_by_xpath(xpath)
+        element.click()
 
-  def set_textarea(self):
-    textarea = self.driver.find_element(By.XPATH, "//textarea[@id=\'textarea-input\']")
-    textarea.send_keys("Hello")
+    def get_text(self, xpath):
+        return self.driver.find_element_by_xpath(xpath).text
 
-  def set_file(self):
-    file_input = self.driver.find_element(By.XPATH, "//input[@type='file']")
-    file_input.send_keys("C:\\Users\\Rafael Alves\\Downloads\\file.txt")
+    def check_message_alert(self, message, class_status):
+        self.driver.implicitly_wait(1000)
+        text_alert = self.get_text("//ngb-alert[@class='alert " + class_status + " alert-dismissible']")
+        self.assertIn(message, text_alert)
 
-  def set_radio(self):
-    self.driver.find_element(By.XPATH, "//label[contains(.,\'Radio 2\')]").click()
+    def check_text_label_invalid(self, message):
+        label_invalid = self.get_text(self.xpath_label_invalid)
+        self.assertIn(message, label_invalid)
 
-  def set_checkbox(self):
-    self.driver.find_element(By.XPATH, "//label[contains(.,\'Check\')]").click()
+    def set_email(self, email):
+        self.set_value_element(self.xpath_email, email)
 
-  def test_register_no_required_field(self):
-    self.init_method(self)
-    self.click_button_send()
-    self.check_message_alert("Formulário inválido", "alert-danger")
+    def set_text_area(self):
+        self.set_value_element(self.xpath_text_area, self.message_text_area)
 
-  def test_register_email_incorrect_format(self):
-    self.init_method(self)
-    self.set_email("rafael")
-    self.set_password("123456")
-    self.click_button_send()
-    self.check_message_alert("Formulário inválido", "alert-danger")
-    self.check_text_label_invalid("Email inválido")
+    def set_file(self):
+        self.set_value_element(self.xpath_file, self.file_path)
 
-  def test_register_incorrect_password(self):
-    self.init_method(self)
-    self.set_email("rafael.alves@mail.com")
-    self.set_password("123")
-    self.click_button_send()
-    self.check_message_alert("Formulário inválido", "alert-danger")
-    self.check_text_label_invalid("Senha deve ter entre 4 e 8 caracteres.")
+    def set_password(self, password):
+        self.set_value_element(self.xpath_password, password)
 
-  def test_register_success(self):
-    self.init_method(self)
-    self.set_email("rafael.alves@mail.com")
-    self.set_autocomplete()
-    self.set_dropdown()
-    self.set_textarea()
-    self.set_file()
-    self.set_password("123456")
-    self.set_radio()
-    self.set_checkbox()
-    self.click_button_send()
-    self.check_message_alert("Sucesso", "alert-success")
+    def set_radio(self):
+        self.click_element(self.xpath_radio)
+
+    def set_check_box(self):
+        self.click_element(self.xpath_check_box)
+
+    def set_autocomplete(self):
+        self.set_value_element(self.xpath_autocomplete, self.value_search)
+        self.driver.implicitly_wait(2000)
+        self.click_element(self.xpath_option_find)
+
+    def set_drop_down(self):
+        drop_down = self.driver.find_element(By.ID, self.xpath_select)
+        drop_down.find_element(By.XPATH, self.xpath_option_value).click()
+
+    def click_button_send(self):
+        self.click_element(self.xpath_button_register)
+
+    def test_register_no_required_field(self):
+        self.click_button_send()
+        self.check_message_alert(self.message_error, self.class_alert_error)
+
+    def test_register_email_incorrect_format(self):
+        self.set_email(self.invalid_email)
+        self.set_password(self.valid_password)
+        self.click_button_send()
+        self.check_message_alert(self.message_error, self.class_alert_error)
+        self.check_text_label_invalid(self.message_invalid_email)
+
+    def test_register_incorrect_password(self):
+        self.set_email(self.valid_email)
+        self.set_password(self.invalid_password)
+        self.click_button_send()
+        self.check_message_alert(self.message_error, self.class_alert_error)
+        self.check_text_label_invalid(self.message_invalid_password)
+
+    def test_register_success(self):
+        self.set_email(self.valid_email)
+        self.set_autocomplete()
+        self.set_drop_down()
+        self.set_text_area()
+        self.set_file()
+        self.set_password(self.valid_password)
+        self.set_radio()
+        self.set_check_box()
+        self.click_button_send()
+        self.check_message_alert(self.message_success, self.class_alert_success)
+
 
 if __name__ == '__main__':
     unittest.main()
