@@ -77,7 +77,7 @@ class TestRegister(unittest.TestCase):
 
   def test_register_email_incorrect_format(self):
     self.init_method(self)
-    self.set_email("rafael.alves@mail")
+    self.set_email("rafael")
     self.set_password("123456")
     self.click_button_send()
     self.check_message_alert("Formulário inválido", "alert-danger")
@@ -85,6 +85,7 @@ class TestRegister(unittest.TestCase):
 
   def test_register_incorrect_password(self):
     self.init_method(self)
+    self.set_email("rafael.alves@mail.com")
     self.set_password("123")
     self.click_button_send()
     self.check_message_alert("Formulário inválido", "alert-danger")
