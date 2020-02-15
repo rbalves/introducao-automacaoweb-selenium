@@ -1,0 +1,35 @@
+CT - Cadastrar informações
+
+Pré-condição
+	Acessar pelo navegador o site https://www.testingandplay.com/example/form
+
+Passos
+	Clique no campo email abaixo do label nominado "Email"
+	Digite o email "rafael@mail.com"
+
+	Clique no input abaixo do label nominado "Autocomplete"
+	Digite "dis"
+	Aguarde a listagem de items
+	Clique no item "District of Columbia"
+
+	Clique no select abaixo do label nominado "Select"
+	Clique no item com valor "2"
+
+	Clique no textarea abaixo do label nominado "Textarea"
+	Digite o seguinte texto: "Hello World"
+
+	Clique no input com o texto "Selecione um arquivo"
+	Clique no no item Downloads no menu lateral
+	Clique no arquivo file.txt
+	Clique no botão Abrir
+
+	Clique no input com o texto "Senha"
+	Digite a senha "1234"
+
+	Clique no radio "Radio 2"
+
+	Clique no checkbox "Check"
+
+	Clique no botão "Cadastrar"
+	
+	Verifique se aparece um alert com o texto "Sucesso"

@@ -1,0 +1,247 @@
+{
+  "id": "17700e46-cee4-48eb-b56f-336d50e79fac",
+  "version": "2.0",
+  "name": "teste-cadastro",
+  "url": "https://www.testingandplay.com",
+  "tests": [{
+    "id": "769047b7-698f-4678-94b3-516d45fa5c2f",
+    "name": "teste-cadastro",
+    "commands": [{
+      "id": "ed6ea242-db7a-4ce2-b3c3-3ede17303e43",
+      "comment": "",
+      "command": "open",
+      "target": "/example/form",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4ab61f65-a619-4c0b-a928-9a0eca30abea",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1346x708",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5c7aafc1-103e-4e8f-91cc-19f3f4f0153b",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//input[@name='email']",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "48687758-9296-49fa-9474-b1765caf41bb",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//input[@name='email']",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.ng-dirty:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "rafael.alves@mail.com"
+    }, {
+      "id": "7003b8e2-fdcd-43c6-985d-5cdb5481a170",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//input[@id='typeahead-basic']",
+      "targets": [
+        ["id=typeahead-basic", "id"],
+        ["name=state", "name"],
+        ["css=#typeahead-basic", "css:finder"],
+        ["xpath=//input[@id='typeahead-basic']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "810cac38-0b97-4771-ae1c-7e073fc0ec71",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//button[@id='ngb-typeahead-0-0']",
+      "targets": [
+        ["id=ngb-typeahead-0-0", "id"],
+        ["css=#ngb-typeahead-0-0", "css:finder"],
+        ["xpath=//button[@id='ngb-typeahead-0-0']", "xpath:attributes"],
+        ["xpath=//ngb-typeahead-window[@id='ngb-typeahead-0']/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'District Of Columbia')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "21fad395-dc59-41a5-b588-2974e8e2bbcc",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//input[@id='typeahead-basic']",
+      "targets": [
+        ["id=typeahead-basic", "id"],
+        ["name=state", "name"],
+        ["css=#typeahead-basic", "css:finder"],
+        ["xpath=//input[@id='typeahead-basic']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "District Of Columbia"
+    }, {
+      "id": "d4ddfb1d-5282-490b-8715-9e00f87e3a20",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//select[@id='select-input']",
+      "targets": [
+        ["id=select-input", "id"],
+        ["css=#select-input", "css:finder"],
+        ["xpath=//select[@id='select-input']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "20443255-d639-4177-8f52-02c98a2dbe6d",
+      "comment": "",
+      "command": "select",
+      "target": "id=select-input",
+      "targets": [],
+      "value": "label=2"
+    }, {
+      "id": "dfc74aba-d9fc-448c-bcf8-5a8a317ac143",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//select[@id='select-input']",
+      "targets": [
+        ["id=select-input", "id"],
+        ["css=#select-input", "css:finder"],
+        ["xpath=//select[@id='select-input']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a7e77b6e-1352-43f5-ab1f-899883e21c0a",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//textarea[@id='textarea-input']",
+      "targets": [
+        ["id=textarea-input", "id"],
+        ["css=#textarea-input", "css:finder"],
+        ["xpath=//textarea[@id='textarea-input']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f564b243-47a7-415d-9dd7-ae7359e89e37",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//textarea[@id='textarea-input']",
+      "targets": [
+        ["id=textarea-input", "id"],
+        ["css=#textarea-input", "css:finder"],
+        ["xpath=//textarea[@id='textarea-input']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "heloo"
+    }, {
+      "id": "d80fa2cf-687a-454c-a204-f81a712f9fbc",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//input[@id='file-input']",
+      "targets": [
+        ["id=file-input", "id"],
+        ["css=#file-input", "css:finder"],
+        ["xpath=//input[@id='file-input']", "xpath:attributes"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "94f725ae-8d8f-465f-9efe-3cabb96ed28d",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//input[@id='file-input']",
+      "targets": [
+        ["id=file-input", "id"],
+        ["css=#file-input", "css:finder"],
+        ["xpath=//input[@id='file-input']", "xpath:attributes"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "C:\\fakepath\\Termo Encerramento de Conta.pdf"
+    }, {
+      "id": "73150b9f-6fd1-4b8d-8f3f-f9b325b5e467",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//input[@name='password']",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.form-group > .ng-untouched", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "66979172-6a2f-4c05-a5f0-2df52a952e0d",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//input[@name='password']",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.form-group > .ng-untouched", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "e3c8a646-a849-46ad-a10b-85206563c47f",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//label[contains(.,'Radio 2')]",
+      "targets": [
+        ["css=.mb-2 > .form-check-label", "css:finder"],
+        ["xpath=//div[8]/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Radio 2')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "57cbc2d7-51f7-409a-a35a-b1e042b40e02",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//label[contains(.,'Check')]",
+      "targets": [
+        ["css=.form-group > .form-check-label", "css:finder"],
+        ["xpath=//div[9]/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Check')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "eba16992-3828-41ca-baef-bd2e240fe1bf",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//button[@id='submit-input']",
+      "targets": [
+        ["id=submit-input", "id"],
+        ["css=#submit-input", "css:finder"],
+        ["xpath=//button[@id='submit-input']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Cadastrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b261bb38-4a88-4de2-822e-6453a1589240",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//ngb-alert/button/span",
+      "targets": [
+        ["css=.close:nth-child(1) > span", "css:finder"],
+        ["xpath=//ngb-alert/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "70e2164c-c99f-4ad7-b8c6-de3231cc9c39",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["769047b7-698f-4678-94b3-516d45fa5c2f"]
+  }],
+  "urls": ["https://www.testingandplay.com/"],
+  "plugins": []
+}
